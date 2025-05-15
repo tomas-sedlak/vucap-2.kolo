@@ -1,0 +1,22 @@
+a)
+K tejto úlohe prislúcha kód `uloha1/riesenie_a.py`. 
+Použijeme knižnicu pandas na načítanie Excel súboru `pohyby_lodi.xlsx`. 
+Následne využijeme vstavanú funkciu `sort_values` na zoradenie dát podľa stĺpcov `Ship_ID` a `Timestamp`. Skript najprv skontroluje, či sú dáta už správne zoradené. Ak nie sú, automaticky ich zoradí a exportuje do nového súboru `pohyby_lodi_sorted.xlsx` v tom istom priečinku.
+Výstupom skriptu je informácia v konzole, či boli dáta správne zoradené, prípadne vytvorenie nového zoradeného súboru.
+
+b)
+K tejto úlohe prislúcha kód `uloha1/riesenie_b.py`.
+Použijeme knižnice pandas a matplotlib na vizualizáciu pohybu lodí podľa ich zemepisnej šírky a dĺžky.
+Skript načíta dáta zo súboru `pohyby_lodi.xlsx` a pre každú loď vygeneruje samostatný graf pohybu, ktorý uloží do priečinka `uloha1/pohyby_lodi/` pod názvom `pohyb_lode_{Ship_ID}.png`.
+Okrem toho skript vytvorí aj spoločný graf pohybu všetkých lodí, kde je každá loď rozlíšená farbou a legendou. Tento graf sa uloží ako `uloha1/pohyby_lodi/pohyb_lodi.png`.
+Výstupom sú obrázky s trajektóriami lodí, ktoré je možné použiť na ďalšiu analýzu alebo prezentáciu.
+
+c)
+K tejto úlohe prislúcha kód `uloha1/riesenie_c.py`.
+Skript využíva knižnice pandas a geopy na analýzu pohybu lodí zo súboru `pohyby_lodi.xlsx`.
+Najprv identifikuje loď s najvyššou zaznamenanou rýchlosťou a vypíše jej ID spolu s hodnotou rýchlosti v uzloch.
+Následne pre každú loď vypočíta celkovú prejdenú vzdialenosť na základe jej postupných geografických súradníc (šírka a dĺžka) pomocou geodetickej vzdialenosti. Skript určí, ktorá loď prešla najdlhšiu trasu, a vypíše jej ID spolu s celkovou vzdialenosťou v kilometroch.
+Výstupom skriptu sú informácie v konzole o lodi s najvyššou rýchlosťou a o lodi s najdlhšou prejdenou trasou, napríklad:
+
+Najvyššiu rýchlosť mala loď 7 (41.34 uzlov)
+Najdlhšiu trasu prešla loď 9 (226.12 km)
