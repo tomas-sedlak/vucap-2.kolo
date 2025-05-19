@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Načítanie dát
 file_path = 'uloha2/SpotifySongs2023.csv'
-df = pd.read_csv(file_path, encoding='cp1252')
+df = pd.read_csv(file_path, encoding_errors="ignore")
 
 # Vybrané kvalitatívne atribúty
 attributes = ['mode', 'key']
