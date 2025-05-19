@@ -4,7 +4,8 @@ import seaborn as sns
 
 # Načítanie dát
 file_path = 'uloha2/SpotifySongs2023.csv'
-df = pd.read_csv(file_path, encoding='cp1252')
+df = pd.read_csv(file_path, encoding_errors="ignore")
+
 
 # Vybrané kvantitatívne atribúty
 attributes = ['streams', 'bpm', 'danceability_%']
