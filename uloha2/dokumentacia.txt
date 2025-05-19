@@ -1,0 +1,79 @@
+a)
+Kvalitatinve znaky:
+- track_name (názov piesne)
+- artist(s)name (názov interpreta/interpretov)
+- key (tónina piesne)
+- mode (mód piesne – major/minor)
+
+Kvantitatívne znaky:
+- artist_count (počet interpretov)
+- released_year (rok vydania)
+- released_month (mesiac vydania)
+- released_day (deň vydania)
+- in_spotify_playlists (počet Spotify playlistov)
+- in_spotify_charts (umiestnenie v rebríčkoch Spotify)
+- streams (počet prehratí na Spotify)
+- in_apple_playlists (počet Apple Music playlistov)
+- in_apple_charts (umiestnenie v rebríčkoch Apple Music)
+- in_deezer_playlists (počet Deezer playlistov)
+- in_deezer_charts (umiestnenie v rebríčkoch Deezer)
+- in_shazam_charts (umiestnenie v rebríčkoch Shazam)
+- bpm (tempo piesne)
+- danceability% (vhodnosť na tanec v %)
+- valence_% (pozitívnosť v %)
+- energy_% (energia v %)
+- acousticness_% (akustickosť v %)
+- instrumentalness_% (inštrumentálnosť v %)
+- liveness_% (živé vystúpenie v %)
+- speechiness_% (hovorené slovo v %)
+
+Rozdiel medzi nimi:
+- Kvalitatívne (kategoriálne) atribúty popisujú vlastnosti alebo kategórie.
+- Kvantitatívne (numerické) atribúty vyjadrujú množstvo, počet alebo mieru.
+
+b)
+
+# Riešenie úlohy b):
+
+Nižšie je ukážka Python kódu, ktorý načíta súbor SpotifySongs2023.csv, vyberie tri kvantitatívne atribúty (streams, bpm, danceability%) a zobrazí ich rozloženie pomocou grafov. Používame knižnice pandas a matplotlib.
+
+## Dokumentácia:
+- Kód načíta CSV súbor do dátového rámca.
+- Pre každý zvolený atribút (streams, bpm, danceability%) vykreslí histogram a boxplot.
+- Histogram ukazuje rozloženie hodnôt, boxplot zobrazuje medián, kvartily a prípadné odľahlé hodnoty.
+- Tieto typy grafov sú vhodné pre numerické (kvantitatívne) atribúty.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Načítanie dát
+# Uistite sa, že súbor SpotifySongs2023.csv je v rovnakom adresári ako tento skript
+file_path = 'SpotifySongs2023.csv'
+df = pd.read_csv(file_path)
+
+# Vybrané kvantitatívne atribúty
+attributes = ['streams', 'bpm', 'danceability%']
+
+for attr in attributes:
+    plt.figure(figsize=(12, 5))
+    plt.subplot(1, 2, 1)
+    plt.hist(df[attr].dropna(), bins=30, color='skyblue', edgecolor='black')
+    plt.title(f'Histogram: {attr}')
+    plt.xlabel(attr)
+    plt.ylabel('Počet výskytov')
+
+    plt.subplot(1, 2, 2)
+    plt.boxplot(df[attr].dropna(), vert=False)
+    plt.title(f'Boxplot: {attr}')
+    plt.xlabel(attr)
+
+    plt.tight_layout()
+    plt.show()
+```
+
+**Typy grafov pre numerické (kvantitatívne) atribúty:**
+- Histogram
+- Boxplot
+- Violin plot
+- Density plot
